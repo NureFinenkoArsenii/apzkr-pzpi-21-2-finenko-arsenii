@@ -1,0 +1,52 @@
+.save-drawing-dialog-unique {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  width: 300px;
+  text-align: center;
+}
+
+.save-drawing-dialog-unique h2 {
+  margin-bottom: 20px;
+}
+
+.save-options-unique {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.save-options-unique button {
+  padding: 10px;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-options-unique button:hover {
+  background-color: #1e40af;
+}
+
+.cancel-button-unique {
+  padding: 10px;
+  background-color: #ccc;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button-unique:hover {
+  background-color: #999;
+}

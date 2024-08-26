@@ -1,0 +1,76 @@
+.error-dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.error-dialog-container { /* Унікальний клас для контейнера діалогу */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 100%;
+    text-align: center; /* Центрування тексту */
+}
+
+.error-dialog-title { /* Унікальний клас для заголовка */
+    margin-bottom: 10px;
+    color: #af4c4c;
+}
+
+.error-dialog-message { /* Унікальний клас для повідомлення */
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.error-dialog-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.error-dialog-button { /* Унікальний клас для кнопки */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #af4c4c; /* Червоний колір для кнопки Ok */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    width: 100px;
+
+    &:hover {
+        background-color: #993333;
+    }
+}
+
+.error-dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 300; /* Вище за frozen-backdrop і AddDroneDialog */
+}
+
+.error-dialog-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}

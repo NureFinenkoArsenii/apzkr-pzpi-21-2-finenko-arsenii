@@ -1,0 +1,80 @@
+.map-style-selector {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(25, 25, 112, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    cursor: pointer;
+    width: 60px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.map-style-selector.open {
+    width: 150px; /* Відкриває панель для варіантів мап */
+}
+
+.map-style-selector h3 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.map-style-selector .map-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-style-selector button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: #1e3a8a;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.map-style-selector button:hover {
+    background-color: #1e40af;
+}
+
+body.planning-mode-active .map-style-selector,
+body.planning-mode-active .map-style-selector button:hover {
+    background-color: #8b0000b0 !important; /* Заміняємо всі сині кольори на червоні */
+}
+
+body.planning-mode-active .map-style-selector button {
+    background-color: #B22222 !important; /* Світліший червоний при наведенні */
+}
+
+.leaflet-marker-icon.leaflet-div-icon.leaflet-editing-icon {
+    background-color: #ff0000; /* Колір кружечка */
+    border-radius: 50%; /* Зробити кружечок */
+    border: 2px solid white; /* Додати білу обводку */
+    width: 8px; /* Зменшений розмір кружечка */
+    height: 8px; /* Зменшений розмір кружечка */
+    margin-left: -4px; /* Центрувати кружечок по горизонталі */
+    margin-top: -4px; /* Центрувати кружечок по вертикалі */
+}
+
+.map-container .leaflet-control-container {
+    display: block;
+}
+
+.map-container.drawing-mode .leaflet-control-container,
+.map-container.drawing-mode .map-style-selector {
+    display: none;
+}
+
+.map-container.cursor-drop-point {
+    cursor: url('../../media/drop-point.png') 16 16, pointer; /* Іконка drop-point разом з курсором */
+}

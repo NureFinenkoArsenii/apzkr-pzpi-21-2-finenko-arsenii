@@ -1,0 +1,349 @@
+.drone-tab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(244, 244, 244, 0.7);
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 0 8px;
+    transition: transform 0.3s ease;
+    z-index: 100;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &.collapsed {
+        transform: translateX(100%);
+    }
+
+    h2 {
+        margin-top: 20px;
+        font-size: 3rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .add-drone-button {
+        background-color: rgba(25, 25, 112, 0.7);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        cursor: pointer;
+        font-size: 2rem;
+        margin-bottom: 20%;
+        margin-top: 40px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: rgba(0, 0, 139, 0.7);
+        }
+    }
+
+    .new-queue-button {
+        background-color: #8b0000b0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 40px;
+        cursor: pointer;
+        font-size: 2rem;
+        margin-bottom: 20%;
+        margin-top: 40px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #B22222;
+        }
+
+        &.disabled {
+            background-color: #cccccc; /* Сірий колір для неактивної кнопки */
+            cursor: not-allowed;
+        }
+    }
+
+    .collapse-button {
+        position: absolute;
+        top: -5px;
+        left: -10px;
+        background-color: rgba(25, 25, 112, 0.7);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 6px 12px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            background-color: rgba(0, 0, 139, 0.7);
+        }
+    }
+
+    .drone-list-wrapper {
+        display: flex;
+        position: relative;
+        width: 100%;
+        flex: 1;
+        max-height: calc(100vh - 160px);
+    }
+
+    .drone-list {
+        flex: 1;
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+        width: calc(100% - 15px);
+        margin-right: -2px;
+        box-sizing: content-box;
+        transition: margin-right 0.3s ease;
+    }
+
+    .drone-list::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .drone-list::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 139, 0.7);
+        border-radius: 10px;
+    }
+
+    .drone-list::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    .drone-item {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f8f9faaf;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #e2e6ea;
+        }
+
+        strong {
+            font-size: 1.1rem;
+        }
+
+        .drone-type {
+            font-style: italic;
+            color: #666;
+        }
+
+        &.selected {
+            background-color: #191970;
+            color: white;
+            padding-bottom: 20px;
+
+            .drone-type {
+                color: white;
+            }
+        }
+
+        &.planning-mode {
+            justify-content: space-between;
+            text-align: right;
+            position: relative;
+            align-items: end;
+            padding-left: 40px; // Додаємо відступ для іконки ліворуч
+        
+            strong {
+                width: 100%;
+            }
+        
+            .drone-type {
+                display: inline-block;  // Забезпечує ширину, яка підходить під текст
+                text-align: right;      // Вирівнює текст по правому краю
+                cursor: pointer;        // Вказує, що текст можна натиснути
+                transition: color 0.3s ease;
+        
+                &:hover {
+                    text-decoration: underline;  // Підкреслює текст при наведенні
+                }
+            }
+        
+            .actions {
+                display: none; // Приховуємо кнопки дій
+            }
+    
+            .drone-icon {
+                position: absolute;
+                left: 10px; // Відступ іконки від лівого краю
+                width: 50px; // Розмір іконки
+                height: 50px; // Розмір іконки
+            }
+        }
+    }
+
+    .drone-actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .drone-action-btn {
+        flex: 1;
+        margin: 0 5px;
+        padding: 5px 10px;
+        background-color: #1e3a8a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #1e40af;
+        }
+    }
+}
+
+.expand-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-90deg);
+    background-color: rgba(25, 25, 112, 0.7);
+    color: white;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 60px;
+    cursor: pointer;
+    font-size: 3rem;
+    transition: background-color 0.3s ease;
+    z-index: 101;
+    margin-right: -105px;
+
+    &:hover {
+        background-color: rgba(0, 0, 139, 0.7);
+    }
+}
+
+body.planning-mode-active .drone-tab .add-drone-button,
+body.planning-mode-active .drone-tab .collapse-button,
+body.planning-mode-active .drone-tab .drone-action-btn,
+body.planning-mode-active .drone-tab .expand-button,
+body.planning-mode-active .drone-tab .sort-button,
+body.planning-mode-active .drone-tab .filter-reset-button,
+body.planning-mode-active .drone-tab .collapse-all-button,
+body.planning-mode-active .drone-list::-webkit-scrollbar-thumb {
+    background-color: #8b0000b0 !important;
+}
+
+body.planning-mode-active .drone-tab .add-drone-button:hover,
+body.planning-mode-active .drone-tab .collapse-button:hover,
+body.planning-mode-active .drone-tab .drone-action-btn:hover,
+body.planning-mode-active .drone-tab .expand-button:hover,
+body.planning-mode-active .drone-tab .sort-button:hover,
+body.planning-mode-active .drone-tab .filter-reset-button:hover,
+body.planning-mode-active .drone-tab .collapse-all-button:hover {
+    background-color: #B22222 !important;
+}
+
+.drone-tab-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.collapse-all-button {
+    position: absolute;
+    left: -5px;
+    top: 80%;
+    transform: translateY(-50%);
+    background-color: rgba(25, 25, 112, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1px 9px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 139, 0.7);
+    }
+}
+
+.filter-reset-button {
+    position: absolute;
+    right: -5px;
+    top: 82%;
+    transform: translateY(-50%);
+    background-color: rgba(25, 25, 112, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1px 9px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    z-index: 102;
+
+    &:hover {
+        background-color: rgba(0, 0, 139, 0.7);
+    }
+}
+
+.drone-type {
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #191970;
+        text-decoration: underline;
+    }
+}
+
+.sort-button {
+    position: absolute;
+    right: -5px;
+    top: 44%;
+    background-color: rgba(25, 25, 112, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1px 9px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    z-index: 103;
+
+    &:hover {
+        background-color: rgba(0, 0, 139, 0.7);
+    }
+}
+
+.drone-stats {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drone-item.selected .drone-stats {
+    color: black;
+}
+
+.new-queue-button.disabled {
+    background-color: #cccccc; /* Grey background to indicate it's disabled */
+    cursor: not-allowed;
+    pointer-events: none; /* Ensures that no click events are triggered */
+}

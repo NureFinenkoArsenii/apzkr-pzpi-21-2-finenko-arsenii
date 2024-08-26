@@ -1,0 +1,97 @@
+.dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* Центрування тексту */
+}
+
+.dialog h2 {
+    margin-bottom: 20px;
+    color: inherit; /* Зберігає стандартний колір заголовка */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрування форми */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Займає всю ширину діалогового вікна */
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center; /* Центрування тексту міток */
+    }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: center; /* Центрування введеного тексту */
+    }
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.save-button, .cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 45%; /* Займають 45% ширини для симетрії */
+    text-align: center;
+}
+
+.save-button {
+    background-color: #1e3a8a;
+    color: white;
+
+    &:hover {
+        background-color: #1e40af;
+    }
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: black;
+
+    &:hover {
+        background-color: #999;
+    }
+}
+
+body.planning-mode-active .save-button {
+    background-color:#8b0000b0 !important; /* Заміняємо всі сині кольори на червоні */
+}
+
+body.planning-mode-active .save-button:hover {
+    background-color: #B22222 !important; /* Світліший червоний при наведенні */
+}

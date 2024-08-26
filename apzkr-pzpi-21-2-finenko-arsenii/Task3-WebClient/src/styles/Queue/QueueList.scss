@@ -1,0 +1,33 @@
+.queue-tab {
+    position: absolute;
+    top: 150px;  // Adjust the distance from the top
+    left: 0;
+    width: 300px;
+    max-height: 500px;  // Limit the height of the QueueList
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    overflow-y: auto;  // Allow scrolling if content overflows
+    border-radius: 0 0 10px 0;  // Optional: Rounded bottom corners
+}
+
+.queue-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.queue-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.queue-list li.active {
+    background-color: #8b0000b0;
+    color: white;
+    font-weight: bold;
+}
